@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add New</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/addNewStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Crete+Round|IBM+Plex+Serif|Tajawal&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="mainWrapper">
+        <div class="col s6 center-align">
+            <img src="./assets/logos/bb3Blue.png" class="mainLogo" alt="Business Blueprint">
+        </div>
+
+        <div class="container">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">work</i>Add Customer</div>
+                    <div class="collapsible-body">
+                        <div class="container" id="addCustomer">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="company" type="text" class="validate">
+                                            <label for="company">Company Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="CuFirstName" type="text" class="validate">
+                                            <label for="CuFirstName">First Name</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="CuLastName" type="text" class="validate">
+                                            <label for="CuLastName">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="CuEmail" type="email" class="validate">
+                                            <label for="CuEmail">Email</label>
+                                            <span class="helper-text" data-error="Please enter a valid email"></span>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="CuPhone" type="tel" class="validate"
+                                                pattern="^\d{3}-\d{3}-\d{4}$" required>
+                                            <label for="CuPhone">Phone Number (xxx-xxx-xxxx)</label>
+                                            <span class="helper-text"
+                                                data-error="Please enter a valid phone number in correct format"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <button id="customerSubmit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">add_circle</i>Add Item</div>
+                    <div class="collapsible-body">
+                        <div class="container" id="addItem">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="itemName" type="text" class="validate">
+                                            <label for="itemName">Item Name</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="itemPrice" type="text" class="validate">
+                                            <label for="itemPrice">Item Price</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="itemDescription" type="text"
+                                                class="materialize-textarea"></textarea>
+                                            <label for="itemDescription">Item Description</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <button id="itemSubmit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">create_new_folder</i>Add Order</div>
+                    <div class="collapsible-body">
+                        <span>Can we make this with drop downs of customers and items?</span>
+                    </div>
+                </li>
+                <!---------------   can not get the state field to correctly validate
+                    or get a "select" drop down of states to work
+                    something with the initializing i can not figure out ------------------->
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">person_add</i>Add Employee</div>
+                    <div class="collapsible-body">
+                        <div class="container" id="addEmployee">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="EmFirstName" type="text" class="validate">
+                                            <label for="EmFirstName">First Name</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="EmLastName" type="text" class="validate">
+                                            <label for="EmLastName">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="EmAddress" type="text" class="validate">
+                                            <label for="EmAddress">Address</label>
+                                        </div>
+                                        <div class="input-field col s4">
+                                            <input id="EmCity" type="text" class="validate">
+                                            <label for="EmCity">City</label>
+                                        </div>
+                                        <div class="input-field col s2">
+                                            <select>
+                                                <option value="" disabled selected>State</option>
+                                                <option value="AL">AL</option>
+                                                <option value="AK">AK</option>
+                                                <option value="AZ">AZ</option>
+                                                <option value="AR">AR</option>
+                                                <option value="CA">CA</option>
+                                                <option value="CO">CO</option>
+                                                <option value="CT">CT</option>
+                                                <option value="DE">DE</option>
+                                                <option value="DC">DC</option>
+                                                <option value="FL">FL</option>
+                                                <option value="GA">GA</option>
+                                                <option value="HI">HI</option>
+                                                <option value="ID">ID</option>
+                                                <option value="IL">IL</option>
+                                                <option value="IN">IN</option>
+                                                <option value="IA">IA</option>
+                                                <option value="KS">KS</option>
+                                                <option value="KY">KY</option>
+                                                <option value="LA">LA</option>
+                                                <option value="ME">ME</option>
+                                                <option value="MD">MD</option>
+                                                <option value="MA">MA</option>
+                                                <option value="MI">MI</option>
+                                                <option value="MN">MN</option>
+                                                <option value="MS">MS</option>
+                                                <option value="MO">MO</option>
+                                                <option value="MT">MT</option>
+                                                <option value="NE">NE</option>
+                                                <option value="NV">NV</option>
+                                                <option value="NH">NH</option>
+                                                <option value="NJ">NJ</option>
+                                                <option value="NM">NM</option>
+                                                <option value="NY">NY</option>
+                                                <option value="NC">NC</option>
+                                                <option value="ND">ND</option>
+                                                <option value="OH">OH</option>
+                                                <option value="OK">OK</option>
+                                                <option value="OR">OR</option>
+                                                <option value="PA">PA</option>
+                                                <option value="RI">RI</option>
+                                                <option value="SC">SC</option>
+                                                <option value="SD">SD</option>
+                                                <option value="TN">TN</option>
+                                                <option value="TX">TX</option>
+                                                <option value="UT">UT</option>
+                                                <option value="VT">VT</option>
+                                                <option value="VA">VA</option>
+                                                <option value="WA">WA</option>
+                                                <option value="WV">WV</option>
+                                                <option value="WI">WI</option>
+                                                <option value="WY">WY</option>
+                                              </select>
+                                              <label>State</label>
+                                            <!-- <input id="EmState" type="text" data-length="2" class="validate">
+                                            <label for="EmState">State</label>
+                                            <span class="helper-text"
+                                                data-error="Please enter a valid State abbreviation"></span> -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="EmEmail" type="email" class="validate">
+                                            <label for="EmEmail">Email</label>
+                                            <span class="helper-text" data-error="Please enter a valid email"></span>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="EmPhone" type="tel" class="validate"
+                                                pattern="^\d{3}-\d{3}-\d{4}$" required>
+                                            <label for="EmPhone">Phone Number (xxx-xxx-xxxx)</label>
+                                            <span class="helper-text"
+                                                data-error="Please enter a valid phone number in correct format"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <button id="employeeSubmit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="./js/addNewScript.js"></script>
+
+</body>
+
+</html>

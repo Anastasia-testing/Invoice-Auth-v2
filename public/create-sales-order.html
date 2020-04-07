@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Sales Order</title>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Page Title -->
+        <div class="row bg-soft-black py-3 page-container">
+            <div class="col text-center text-white">
+                <h4>Creating Sales Order</h4>
+            </div>
+        </div>
+        <!-- top navbar for small screen -->
+        <div class="row">
+            <div class="col m-0 p-0">
+                <div class="topnav-toprow">
+                    <ul class="topnav bg-navy">
+                        <li><a href="./create-customer.html">Create Customer Account</a></li>
+                        <li><a href="./create-sales-order.html">Create Sales Order</a></li>
+                        <li><a href="./create-invoice.html">Generate Invoice</a></li>
+                        <li><a href="./search-invoice.html">Search Invoice</a></li>
+                   <li><a href="./stat-invoice.html">Invoice Statistics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-12 col-lg-10 bg-light py-5">
+                <div class="row mb-2">
+                    <div class="col-sm-12 col-md-3 pt-2">
+                        <label for="customer">Customer Account#: </label>
+                    </div>
+                    <div class="col-sm-12 col-md-2 pl-md-0">
+                        <input type="text" class="form-control" id="account">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-12 col-md-3 pt-2"><label for="order">Order description: </label></div>
+                    <div class="col-sm-12 col-md-8 pl-md-0"><input type="text" class="form-control" id="description">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-12 col-md-3 pt-2"><label for="amount">Amount ($): </label></div>
+                    <div class="col-sm-12 col-md-2 pl-md-0"><input type="text" class="form-control" id="amount"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 pt-2"></div>
+                    <div class="col-sm-12 col-md-8 pl-md-0">
+                        <button type="button" class="btn btn-primary" id="create-btn">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/create-sales-order.js"></script>
+</body>
+
+</html>

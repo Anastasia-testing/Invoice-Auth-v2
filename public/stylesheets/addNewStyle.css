@@ -1,0 +1,39 @@
+body {
+    background-color: #E6E7EC;
+}
+
+h1 {
+    color: #4A5066;
+    font-family: 'Bree Serif', serif;
+}
+
+.btn {
+    background-color: #4A5066;
+}
+
+.btn:hover {
+    background-color: #0D1931;
+}
+
+
+.btn:active {
+    background-color: #0D1931;
+}
+  
+.btn:visited {
+    background-color: #9CB3C5;
+}
+
+.btn:focus {
+    background-color: #9CB3C5;
+}
+
+.mainLogo {
+    width: 35%;
+}
+
+
+font-family: 'Bree Serif', serif;
+font-family: 'IBM Plex Serif', serif;
+font-family: 'Crete Round', serif;
+font-family: 'Tajawal', sans-serif;

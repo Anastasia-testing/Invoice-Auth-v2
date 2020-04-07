@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        
+        <title>Search</title>
+    </head>
+
+    <body>
+        
+      <nav class="top-nav">
+        <div class="nav-wrapper">
+          <a class="brand-logo center" id="logo-name" href="members.html">Small Business's Name</a>
+          <div class="left">
+            <a class="brand-logo">Logo</a>
+          </div>
+          <div class="right" style="margin-right: 10px">
+            <a href="login.html" class="btn waves-effect waves-light light-blue darken-4">Logout</a>
+          </div>
+        </div>
+      </nav>
+  
+      <div class="container">
+        <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+      </div>
+  
+      <ul id="nav-mobile" class="sidenav sidenav-fixed" styler="transform: translate(0px);">
+        <li class="logo">
+          <div id="logo-container" class="brand-logo"></a>
+          <img id="navbar-logo" type="image" src="./assets/b3Blue.png" style="width: 130px; height: 130px; margin-left: 85px; margin-top: 10px"></img>
+        </li>
+  
+        <li>
+          <h6 style="text-align: center;"><a id="logo-name" href="members.html">Business Blueprint</a></h6>
+        </li>
+  
+        <li>
+          <div class="divider"></div>
+        </li>
+  
+        <div>
+          <h6 style="padding: 10px; color: gray">Customers</h6>
+        </div>
+  
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold">
+              <a class="collapsible-header waves-effect waves-light waves-sidenav" tabindex="0" href="search.html">Search</a>
+            </li>
+  
+            <li class="bold">
+              <a class="collapsible-header waves-effect waves-light waves-sidenav" tabindex="0" href="#!">Add New</a>
+            </li>
+  
+            <li class="bold">
+              <a class="collapsible-header waves-effect waves-light waves-sidenav" tabindex="0">Invoicing</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li>
+                    <a href="#!">View Open Invoices</a>
+                  </li>
+                  <li>
+                    <a href="#!">Generate a New Invoice</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+  
+        <li>
+          <div class="divider"></div>
+        </li>
+  
+        <li>
+          <h6 style="padding: 10px; color: gray">Employees</h6>
+        </li>
+        
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold">
+              <a class="collapsible-header waves-effect waves-light waves-sidenav" tabindex="0" href="#!">See Employee Information</a>
+            </li>
+  
+            <li class="bold">
+              <a class="collapsible-header waves-effect waves-light waves-sidenav" tabindex="0" href="#!">Search by Manager</a>
+            </li>
+  
+            <li class="bold">
+              <a class="collapsible-header waves-effect waves-light waves-sidenav" tabindex="0" href="#!">Add New Employee or Manager</a>
+            </li>
+          </ul>
+        </li> 
+      </ul>
+       
+        
+        <div class="container right">
+            <h1>Search</h1>
+
+            <div class="row">
+              <div class="input-field col s4">
+                  <select>
+                      <option value="" disabled selected>Search By...</option>
+                      <option value="1" onclick="custNameOpts: show">Customer Name</option>
+                      <option value="2">Customer Phone Number</option>
+                      <option value="3">Customer ID</option>
+                      <option value="4">Order ID</option>
+                      <option value="5">Invoice ID</option>
+                  </select>
+                  <label>Choose your Search Option</label>
+              </div>
+
+              <div  class="col s8 custNameOpts">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="first_name" type="text">
+                  <label for="first_name">First Name</label>
+                </div>
+              
+  
+                <div class="input-field col s6">
+                    <input id="last_name" type="text">
+                    <label for="last_name">Last Name</label>
+                </div> 
+              </div>
+
+              <div hidden class="input-field col s6 custPhoneOpts">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel">
+                <label for="icon_telephone">Telephone</label>
+              </div>
+
+              <div hidden class="input-field col s6 custIdOpts">
+                <i class="material-icons prefix">assignment_ind</i>
+                <input id="cust_id" type="number">
+                <label for="cust_id">Customer ID #</label>
+              </div>
+
+              <div hidden class="input-field col s6 orderIdOpts">
+                <i class="material-icons prefix">description</i>
+                <input id="order_id" type="number">
+                <label for="order_id">Order ID</label>
+              </div>
+
+              <div hidden class="input-field col s6 invoiceIdOpts">
+                <i class="material-icons prefix">local_atm</i>
+                <input id="inv_id" type="number">
+                <label for="inv_id">Invoice ID</label>
+              </div>
+
+            </div>
+
+            <div class="row" style="margin-right: 10px" id="searchResults">
+              <h4 class="resultsHeader">SEARCH RESULTS</h4>
+              <div class="resultsBody">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tempus risus, a dignissim lacus. Sed volutpat, arcu et auctor consequat, massa diam pellentesque urna, non faucibus quam enim ut enim. Vestibulum dignissim bibendum nisl, eget dignissim tellus sollicitudin non. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique maximus vehicula. Cras aliquet ullamcorper pretium. Nam porta ex in enim tincidunt, eu condimentum dolor imperdiet. Aliquam pulvinar lectus augue, eget finibus sem elementum non. Duis blandit hendrerit egestas. In id tempor libero, vel tincidunt arcu. Donec feugiat at lacus vulputate placerat. Morbi fermentum, sapien eget auctor molestie, nulla justo vulputate nisi, sit amet lacinia est velit eu leo. Ut a lacus tincidunt, pellentesque diam non, convallis ligula. Donec non mattis arcu. Sed interdum suscipit enim eu iaculis.
+                </p>
+                <p>
+                  Pellentesque euismod aliquet interdum. Nulla id luctus dolor. Integer porttitor pulvinar nisl, nec porttitor nulla efficitur ut. Morbi sed lacus in mi maximus venenatis at ac augue. Proin tincidunt sit amet felis sed porta. Vestibulum porta congue odio in consequat. Morbi aliquet ante a pellentesque mattis. Integer nisl eros, fermentum eget velit quis, tristique condimentum mauris. Mauris purus neque, commodo vestibulum maximus ac, finibus sed sem.
+                </p>
+                <p>
+                  Duis fringilla viverra ipsum, condimentum posuere felis ultrices vel. Donec scelerisque nulla sit amet condimentum ultrices. Proin aliquam sagittis urna vel varius. Vestibulum quis facilisis leo, sit amet tempus libero. Sed quis eros ultricies odio tincidunt lobortis. Aenean pellentesque in ipsum eu vestibulum. Phasellus sit amet ullamcorper massa, eget mollis risus. Nunc laoreet odio odio, eu euismod metus imperdiet maximus.
+                </p>
+              </div>
+            </div>
+
+        </div>
+    
+        
+
+        
+        <!-- [<div class="container">
+            <div class="row">
+                <h1 class="col s12 center-align">Search</h1>
+            </div>
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="input-field col s10">
+                    <select>
+                        <option value="" disabled selected>Search By...</option>
+                        <option value="1">Customer Name</option>
+                        <option value="2">Customer Phone Number</option>
+                        <option value="3">Customer ID</option>
+                        <option value="4">Order ID</option>
+                        <option value="5">Invoice ID</option>
+                    </select>
+                </div>
+                <div class="col s1"></div>
+            </div>
+            <div class="row" id="searchResults">
+            </div>
+        </div>
+        ] -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- <div class="container">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="company" type="text" class="validate">
+                            <label for="company">Company Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="firstName" type="text" class="validate">
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="lastName" type="text" class="validate">
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                            <span class="helper-text" data-error="Please enter a valid email"></span>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="phone" type="tel" class="validate" pattern="^\d{3}-\d{3}-\d{4}$" required>
+                            <label for="phone">Phone Number (xxx-xxx-xxxx)</label>
+                            <span class="helper-text"
+                                data-error="Please enter a valid phone number in correct format"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div> -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <script type="text/javascript" src="js/members.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Do+Hyeon&family=IM+Fell+French+Canon+SC&family=Major+Mono+Display&family=Pacifico&family=Ubuntu+Mono:ital,wght@0,700;1,700&display=swap');
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.top-nav {
+  background-color: #E6E7EC;
+}
+
+.waves-effect.waves-sidenav .waves-ripple {
+  background-color: rgba(69, 94, 156, 0.651);
+}
+
+#logo-name {
+  color: #455E9C;
+  font-weight: bolder;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 20pt;
+}
+
+.nav-wrapper {
+  padding-top: 2px;
+}
+
+
+
+/* font-family: 'Do Hyeon', sans-serif;
+font-family: 'IM Fell French Canon SC', serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Bree Serif', serif;
+font-family: 'Ubuntu Mono', monospace; */

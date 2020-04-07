@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Customer Account</title>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Page Title -->
+        <div class="row bg-soft-black py-3 page-container">
+            <div class="col text-center text-white">
+                <h4>Creating Customer Account</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-0 p-0">
+                <div class="topnav-toprow">
+                    <ul class="topnav bg-navy">
+                        <li><a href="./create-customer.html">Create Customer Account</a></li>
+                        <li><a href="./create-sales-order.html">Create Sales Order</a></li>
+                        <li><a href="./create-invoice.html">Generate Invoice</a></li>
+                        <li><a href="./search-invoice.html">Search Invoice</a></li>
+                        <li><a href="./stat-invoice.html">Invoice Statistics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-12 col-lg-10 bg-light py-5">
+                <div class="row d-none" id="msg-row">
+                    <div class="col text-center text-danger" id="msg"></div>
+                </div>
+                <div class="row mb-2" id="first-row">
+                    <div class="col-sm-12 col-md-3 pt-2"><label for="firstname">First name: </label></div>
+                    <div class="col-sm-12 col-md-6 pl-md-0"><input type="text" class="form-control" id="firstname"></div>
+                </div>
+                <div class="row mb-2" id="first-row">
+                    <div class="col-sm-12 col-md-3 pt-2"><label for="lastname">Last name: </label></div>
+                    <div class="col-sm-12 col-md-6 pl-md-0"><input type="text" class="form-control" id="lastname"></div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-12 col-md-3 pt-2"><label for="email">Email: </label></div>
+                    <div class="col-sm-12 col-md-8 pl-md-0"><input type="text" class="form-control" id="email"></div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-sm-12 col-md-3 pt-2"><label for="phone-number">Phone number: </label></div>
+                    <div class="col-sm-12 col-md-4 pl-md-0"><input type="text" id="phone-number" class="form-control"
+                            placeholder="e.g: 6129871234"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 pt-2"></div>
+                    <div class="col-auto mb-2 pl-md-0"><button id="create-btn" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+                <!-- Container for showing newly created customers. It's hidden on page load -->
+                <div class="row m-0 mt-5">
+                    <div id="new-customer-container" class="container-fluid d-none">
+                        <!-- Table header-->
+                        <div class="row table-header">
+                            <div class="col-2"> Customer Account #</div>
+                            <div class="col-2"> First Name</div>
+                            <div class="col-2"> Last Name</div>
+                            <div class="col-2"> Email</div>
+                            <div class="col-2 text-right"> Phone number</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/create-customer.js"></script>
+</body>
+
+</html>

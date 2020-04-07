@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Invoice</title>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Page Title -->
+        <div class="row bg-soft-black py-3 page-container">
+            <div class="col text-center text-white">
+                <h4>Generating Invoice</h4>
+            </div>
+        </div>
+        <!-- top navbar for small screen -->
+        <div class="row topnav-display">
+            <div class="col m-0 p-0">
+                <div class="topnav-toprow">
+                    <ul class="topnav bg-navy">
+                        <li><a href="./create-customer.html">Create Customer Account</a></li>
+                        <li><a href="./create-sales-order.html">Create Sales Order</a></li>
+                        <li><a href="./create-invoice.html">Generate Invoice</a></li>
+                        <li><a href="./search-invoice.html">Search Invoice</a></li>
+                        <li><a href="./stat-invoice.html">Invoice Statistics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-12 col-lg-10 bg-light py-5 px-lg-5">
+                <!-- SEARCH SECTION -->
+                <div class="row m-0">
+                    <div class="container-fluid bg-yellow">
+                        <div class="row text-black p-5">
+                            <div class="col-sm-12 col-md-4 text-md-right">
+                                <label for="order-id">Enter sales order#: </label>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-3 pl-md-0">
+                                <input type="text" id="order-id" class="form-control">
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 pl-md-0">
+                                <button id="search-btn" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESULT SECTION -->
+                <!-- This section should be hidden on page load. -->
+                <div class="row m-0">
+                    <div id="sub-report-section" class="container-fluid d-none">
+
+                        <!-- SALES ORDER SUB REPORT-->
+                        <div class="row sub-report-section-text mt-5">
+                            <div class="col p-0">
+                                <h5>Sales Order</h5>
+                            </div>
+                        </div>
+                        <!-- Table header-->
+                        <div class="row table-header">
+                            <div class="col-3"> Order #</div>
+                            <div class="col-7"> Description</div>
+                            <div class="col-2 text-right"> Amount</div>
+                        </div>
+                        <div id="order-sub-report" class="row sub-report-text">
+                            <!-- the found sales order is to show here -->
+                        </div>
+
+
+                        <!-- Discount section: should be hidden on page load -->
+                        <div class="row sub-report-section-text mt-4">
+                            <div class="col p-0">Discount</div>
+                        </div>
+                        <div class="row sub-report-text mt-3">
+                            <div class="col-12 col-sm-12 col-md-3 text-md-right pt-2">
+                                <label for="discount-amount">Discount Amount ($):</label>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-2 pl-md-0">
+                                <input type="text" class="form-control form-control-sm" id="discount-amount">
+                            </div>
+                        </div>
+
+                        <!-- Payment Adjustment section: should be hidden on page load -->
+                        <div class="row sub-report-section-text mt-4">
+                            <div class="col p-0">Payment</div>
+                        </div>
+                        <div class="row  sub-report-text mt-3">
+                            <div class="col-12 col-sm-12 col-md-3 text-md-right pt-2">
+                                <label for="pay-amount">Amount to Pay ($): </label>
+
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-2 pl-md-0">
+                                <input type="text" class="form-control form-control-sm" id="pay-amount">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-3 justify-content-center">
+                            <div class="col-auto mb-2 mx-0">
+                                <button class="btn btn-primary" id="generate-btn">Generate Invoice</button>
+                            </div>
+                            <div class="col-auto mx-0">
+                                <button class="btn btn-warning" id="pdf-btn">Print PDF</button>
+                            </div>
+
+
+                        </div>
+                        <!-- Invoice Summary -->
+                        <div class="row invoice-summary my-5">
+                            <div class="container bg-light">
+                                <div class="row">
+                                    <div class="col text-right">
+                                        <h3>INVOICE SUMMARY</h3>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-end text-right">
+                                    <div class="col-10">Invoice Number:</div>
+                                    <div id="invoice-number" class="col-2"></div>
+                                </div>
+                                <div class="row justify-content-end text-right">
+                                    <div class="col-10">Invoice Total:</div>
+                                    <div id="invoice-total" class="col-2"></div>
+                                </div>
+                                <div class="row justify-content-end text-right">
+                                    <div class="col-10">Paid Amount:</div>
+                                    <div id="paid-amount" class="col-2"></div>
+                                </div>
+                                <div class="row justify-content-end text-right sub-report-row">
+                                    <div class="col-10">Discounted Amount:</div>
+                                    <div id="discounted-amount" class="col-2"></div>
+                                </div>
+                                <div class="row justify-content-end text-right text-danger">
+                                    <div class="col-10">Balance Due:</div>
+                                    <div id="balance-due" class="col-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of content section -->
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.62/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.62/vfs_fonts.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/create-invoice.js"></script>
+</body>
+
+</html>
