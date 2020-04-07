@@ -57,6 +57,6 @@ api.get("/api/getcustomer", function(req, res) {
 
 
 // Routes for connecting to invoice middleware
-invRoutes.api(api);
+api.use(invRoutes);
 
 module.exports = api;
