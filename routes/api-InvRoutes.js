@@ -5,14 +5,12 @@ const Op = db.Sequelize.Op;
 const router = require("express").Router();
 
 async function postCustomerApi(req, res) {
-  console.log(req.body);
   const dbCustomer = await db.Customer.create(req.body);
   res.json(dbCustomer);
 }
 
 // function for creating a new sales order
 async function postOrderApi (req, res) {
-  console.log("Body:", req.body);
   const dbOrder = await db.Order.create(req.body);
   res.json(dbOrder);
 }
@@ -45,7 +43,6 @@ async function postPaymentApi (req, res) {
     totalPaid = totalPaid + amount;
   }
   const dbInvoices = await db.Invoice.findAll({ where: { id: invoiceId } });
-  console.log(invoiceId, dbInvoices[0].total_amount);
   // evaluate whether the invoice has been paid in full
   let isPaid;
   if (dbInvoices[0].total_amount - req.body.discount - totalPaid > 0) {
@@ -53,11 +50,10 @@ async function postPaymentApi (req, res) {
   } else {
     isPaid = true;
   }
-  const dbInvoice = await db.Invoice.update(
+  await db.Invoice.update(
     { amount_paid: totalPaid, paid: isPaid },
     { where: { id: invoiceId } }
   );
-  console.log(dbInvoice);
   res.json(dbPayment);
 }
 
@@ -71,10 +67,8 @@ router.get("/api/customers", function(req, res) {
 
 // Get a customer
 router.get("/api/customers/:id", function(req, res) {
-  console.log({ id: req.params.id });
   db.Customer.findAll({ where: { id: req.params.id } })
     .then(function(dbCustomers) {
-      console.log(dbCustomers);
       res.json(dbCustomers);
     });
 });
@@ -178,11 +172,7 @@ router.get("/api/salesorders", function(req, res) {
 
 // Get a sales order
 router.get("/api/salesorders/:id", function(req, res) {
-  console.log({ id: req.params.id });
-  db.Order.findAll({ where: { id: req.params.id } }).then(function(
-    dbOrders
-  ) {
-    console.log(dbOrders);
+  db.Order.findAll({ where: { id: req.params.id } }).then(function( dbOrders ) {
     res.json(dbOrders);
   });
 });
@@ -268,18 +258,13 @@ router.get("/api/invoices", function(req, res) {
 
 // Get an invoice
 router.get("/api/invoices/:id", function(req, res) {
-  console.log({ id: req.params.id });
-  db.Invoice.findAll({ where: { id: req.params.id } }).then(function(
-    dbInvoices
-  ) {
-    console.log(dbInvoices);
+  db.Invoice.findAll({ where: { id: req.params.id } }).then(function( dbInvoices ) {
     res.json(dbInvoices[0]);
   });
 });
 
 // Get Paid and Unpaid Invoice report
 router.get("/api/invoice/report", (req, res) => {
-  console.log("Getting reports....");
   db.Invoice.findAll({ where: { paid: true } }).then(report1 => {
     if (report1) {
       let paidreport = report1.map(item => item.dataValues);
@@ -374,11 +359,7 @@ router.get("/api/payments", function(req, res) {
 
 // Get a payment
 router.get("/api/payments/:id", function(req, res) {
-  console.log({ id: req.params.id });
-  db.Payment.findAll({ where: { id: req.params.id } }).then(function(
-    dbPayments
-  ) {
-    console.log(dbPayments);
+  db.Payment.findAll({ where: { id: req.params.id } }).then(function( dbPayments ) {
     res.json(dbPayments[0]);
   });
 });
@@ -418,7 +399,6 @@ router.put("/api/payments/:id", function(req, res) {
                 } else {
                   isPaid = true;
                 }
-                console.log(isPaid);
                 db.Invoice.update(
                   { amount_paid: totalPaid, paid: isPaid },
                   { where: { id: oldInvoiceId } }
